@@ -9,6 +9,9 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+.login{
+  display: none;
+}
 .item>a>img{
   width: 75%;
   margin: auto;

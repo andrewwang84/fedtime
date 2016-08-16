@@ -41,8 +41,9 @@
             <button type="submit" class="btn btn-default" id="search_go" name="search_go">Search</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#logincontent">注冊</button>
-            <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#logincontent-fb">Login</button>
+            <button type="button" class="btn btn-warning navbar-btn login" onclick="location.href='profile.html'">我的首頁</button>
+            <button type="button" class="btn btn-warning navbar-btn logout" data-toggle="modal" data-target="#logincontent-fb">Login</button>
+            <button type="button" class="btn btn-warning navbar-btn login logoutbtn">Logout</button>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -135,6 +136,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title" id="myModalLabel"><strong>Log in with : </strong></h3>
           </div>
           <div class="modal-footer">
             <div class="facebook-lg" >

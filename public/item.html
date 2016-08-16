@@ -40,8 +40,9 @@
             <button type="submit" class="btn btn-default" id="search_go" name="search_go">Search</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#logincontent">注冊</button>
-            <button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#logincontent-fb">Login</button>
+            <button type="button" class="btn btn-warning navbar-btn login" onclick="location.href='profile.html'">我的首頁</button>
+            <button type="button" class="btn btn-warning navbar-btn logout" data-toggle="modal" data-target="#logincontent-fb">Login</button>
+            <button type="button" class="btn btn-warning navbar-btn login logoutbtn">Logout</button>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -134,6 +135,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title" id="myModalLabel"><strong>Log in with : </strong></h3>
           </div>
           <div class="modal-footer">
             <div class="facebook-lg" >
@@ -186,6 +188,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新編譯和最佳化的 JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/52efba598b.js"></script>
     <script src="javascripts/index.js"></script>
 </body>
 </html>
