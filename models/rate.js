@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var rate = new Schema({
-	"uid" : String,
+	"_id" : String,
     "rnum" : Number,
     "rcontent" : String
 }, {

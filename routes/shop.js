@@ -12,7 +12,13 @@ router.get('/', function(req, res, next) {
   });
 });
 router.get('/:id', function(req, res, next) {
-  Shop.findById(req.params.id, function (err, post) {
+  Shop.findOne({uid:req.params.id}, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+router.get('/u/:id', function(req, res, next) {
+  Shop.findOne({_id:req.params.id}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -24,8 +30,8 @@ router.post('/', function(req, res, next) {
     res.json(post);
   });
 });
-//Put
-router.put('/:id', function(req, res, next) {
+//Patch
+router.patch('/:id', function(req, res, next) {
   Shop.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);

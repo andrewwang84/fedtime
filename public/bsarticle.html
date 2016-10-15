@@ -30,8 +30,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">首頁 </a></li>
-            <li><a href="bestselect.html">編輯精選 </a></li>
+            <li><a href="index.html">首頁</span></a></li>
+            <li class="active"><a href="bestselect.html">編輯精選 <span class="sr-only">(current)</span></a></li>
             <li><a href="bestchef.html">人氣大廚 </a></li>
             <li><a href="localbest.html">區域美食 </a></li>
           </ul>
@@ -84,7 +84,7 @@
           </div>
           <div class="modal-footer">
             <div class="facebook-lg" >
-              <fb:login-button scope="public_profile,email" onlogin='checkLoginState();' size="xlarge">
+              <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="xlarge">
               Login With Facebook
               </fb:login-button>
               <div id="status">
@@ -96,115 +96,33 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 panel-item">
-                <div class="box" onclick="location.href='02-item.html';">
-                    <div class="box-heading">
-                        <img src="images/festive-food-1388406500q51.jpg">
-                    </div>
-                    <div class="box-body">
-                        <h3>編輯精選</h3>
-                        <div class="col-sm-6 city item-info">
-                          <h4>台中市大里區</h4>
-                        </div>
-                        <div class="col-sm-6 cost item-info">
-                          <h4>$180</h4>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-1"></div>
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-10">
+                <!-- Blog Post -->
+                <!-- Title -->
+                <h1 class="title bstext">編輯精選</h1>
+                <hr>
+                <!-- Author -->
+                <p class="lead title">
+                    by 愛粗ㄟ小編
+                &nbsp&nbsp
+                <!-- Date/Time -->
+                <span class="glyphicon glyphicon-time"></span> Posted on July 7, 2016 at 9:00 PM</p>
+                <hr>
+                <!-- Preview Image -->
+                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <hr>
+                <!-- Post Content -->
+                <strong><p class="blog-lead">開頭</p></strong>
+                <p class="blog">第一段</p>
+                <p class="blog">第二段</p>
+                <p class="blog">第三段</p>
+                <p class="blog">第四段</p>
             </div>
-            <div class="col-sm-4 panel-item">
-                <div class="box">
-                    <div class="box-heading">
-                        <img src="images/food-712665_960_720.jpg">
-                    </div>
-                    <div class="box-body">
-                        <h3>人氣大廚</h3>
-                        <p>......</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 panel-item">
-                <div class="box">
-                    <div class="box-heading">
-                        <img src="images/Indonesian_Food.png">
-                    </div>
-                    <div class="box-body">
-                        <h3>區域美食</h3>
-                        <p>......</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="col-sm-4 panel-item">
-                        <div class="box">
-                            <div class="box-heading">
-                                <img src="images/festive-food-1388406500q51.jpg">
-                            </div>
-                            <div class="box-body">
-                                <h3>編輯精選</h3>
-                                <p>......</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 panel-item">
-                        <div class="box">
-                            <div class="box-heading">
-                                <img src="images/food-712665_960_720.jpg">
-                            </div>
-                            <div class="box-body">
-                                <h3>人氣大廚</h3>
-                                <p>......</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 panel-item">
-                        <div class="box">
-                            <div class="box-heading">
-                                <img src="images/Indonesian_Food.png">
-                            </div>
-                            <div class="box-body">
-                                <h3>區域美食</h3>
-                                <p>......</p>
-                            </div>
-                        </div>
-                    </div>
-                <div class="row">
-                    <div class="col-sm-4 panel-item">
-                        <div class="box">
-                            <div class="box-heading">
-                                <img src="images/festive-food-1388406500q51.jpg">
-                            </div>
-                            <div class="box-body">
-                                <h3>編輯精選</h3>
-                                <p>......</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 panel-item">
-                        <div class="box">
-                            <div class="box-heading">
-                                <img src="images/food-712665_960_720.jpg">
-                            </div>
-                            <div class="box-body">
-                                <h3>人氣大廚</h3>
-                                <p>......</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 panel-item">
-                        <div class="box">
-                            <div class="box-heading">
-                                <img src="images/Indonesian_Food.png">
-                            </div>
-                            <div class="box-body">
-                                <h3>區域美食</h3>
-                                <p>......</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="col-lg-1"></div>
         </div>
+        <hr>
     </div>
     <footer class="footer">
         <div class="container-fluid">
