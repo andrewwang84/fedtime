@@ -7,17 +7,19 @@ var shop = new Schema({
     "title" : String,
     "describe" : String,
     "cnum" : Number,
+    "mincnum" : Number,
+    "cavalnum" : Number,
     "host_t" : Number,
     "start_t" : Number,
     "end_t" : Number,
     "cost" : Number,
     "loc_city" : String,
     "loc" : String,
-    "tags" : Array,
+    "tags" : [String],
     "phone" : String,
     "customerid" : Array,
     "s_else" : String,
-    //"s_pic" : String,
+    "s_pic" : String,
     "final" : String
 }, {
     versionKey: false

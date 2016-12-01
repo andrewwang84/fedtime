@@ -88,13 +88,24 @@
               </div>
               <div class="form-group col-lg-12">
                 <label for="describe">簡介 :</label>
-                <input type="textarea" row="2" class="form-control" name="describe" id="describe" placeholder="請給我一段吸引人的簡介~">
+                <input type="textarea" row="2" class="form-control" name="describe" id="describe" placeholder="請給我一段吸引人的簡介~" list="demo">
               </div>
-              <div class="form-group col-lg-6">
+              <datalist id="demo">
+                <option>demo1</option>
+                <option>demo2</option>
+                <option>demo3</option>
+                <option>demo4</option>
+                <option>demo5</option>
+              </datalist>
+              <div class="form-group col-lg-4">
                 <label for="c_num">欲招待人數 :</label>
-                <input type="number" min="1" max="30" value="1" class="form-control" name="c_num" id="c_num">
+                <input type="number" min="1" max="20" value="1" class="form-control" name="c_num" id="c_num">
               </div>
-              <div class="form-group col-lg-6">
+              <div class="form-group col-lg-4">
+                <label for="minc_num">最低成行人數 :</label>
+                <input type="number" min="1" max="20" value="1" class="form-control" name="minc_num" id="minc_num">
+              </div>
+              <div class="form-group col-lg-4">
                 <label for="cost">價錢 :</label>
                 <input type="text" class="form-control" id="cost" name="cost" placeholder="$____/人，EX : 120">
               </div>
@@ -170,7 +181,7 @@
                   <input type="checkbox" value="素食" name="tags"> 素食
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" value=甜點" name="tags"> 甜點
+                  <input type="checkbox" value="甜點" name="tags"> 甜點
                 </label>
                 <label class="checkbox-inline">
                   <input type="checkbox" value="飲料" name="tags"> 飲料
@@ -178,15 +189,19 @@
                 <label class="checkbox-inline">
                   <input type="checkbox" value="調酒" name="tags"> 調酒
                 </label>
+                <label class="checkbox-inline">
+                  其他:&nbsp<input type="text"  name="tags">
+                </label>
               </div>
               <div class="form-group col-lg-12">
                 <label for="s_else">附註 :</label>
                 <textarea class="form-control" rows="3" id="s_else" name="s_else" placeholder="附註說明"></textarea>
               </div>
-              <!--<div class="form-group">
-                <label for="s_pic">照片上傳</label>
-                <input type="file" name="s_pic" enctype="multipart/form-data" id="s_pic">
-              </div>-->
+              <div class="form-group" id="cloudinary">
+                <label for="upload_preset">照片上傳</label>
+                <input type="file" name="file" enctype="multipart/form-data" id="file" multiple>
+                <div id="preview"></div>
+              </div>
               <div class="form-group">
                 <input type="hidden" value="" name="customerid" id="customerid"/>
               </div>

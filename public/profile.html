@@ -42,6 +42,7 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             <p class="login navbar-text" id="fbnav"></p>
+            <button type="button" class="btn btn-warning navbar-btn login newshopbtn">開新飯局</button>
             <button type="button" class="btn btn-warning navbar-btn logout" data-toggle="modal" data-target="#logincontent-fb">Login</button>
             <button type="button" class="btn btn-warning navbar-btn login logoutbtn">Logout</button>
           </ul>
@@ -93,28 +94,43 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-1"></div>
-            <div class="col-lg-10">
+            <div class="col-lg-3">
+              <img class="img-responsive img-thumbnail" alt="Responsive image" id="profilepic">
+            </div>
+            <div class="col-lg-9">
                 <h1 class="title" id="fbuser"></h1>
                 <hr>
                 <p class="lead title" id="stars">
                     用戶評價:&nbsp
-                <button type="button" class="btn btn-success pull-right newshopbtn">開新飯局</button>
+                </p>
+                <p class="lead title" id="specialist">
+                    專長: 
+                </p>
+                <p class="lead title" id="suctime">
+                    交易成功次數: 0次 (0%)
+                </p>
+                <p class="lead title" id="failtime">
+                    交易流標次數: 0次 (0%)
+                </p>
+                <p class="lead title" id="badrecord">
+                    缺席次數: 0次
+                </p>
                 <hr>
             </div>
-            <div class="col-lg-1"></div>
         </div>
-          <div class="row">
-            <div class="col-sm-6 panel-item">
+        <div class="row">
+            <div class="col-sm-12 panel-item">
                 <div class="user-info ustore">
                     <div class="box-body">
                         <h3>我當大廚 :</h3>
                         <table class="table" id="ustoret">
                           <thead>
                             <tr class="info">
-                              <td>Time:</td>
-                              <td>Title:</td>
-                              <td>Status:</td>
+                              <td>時間:</td>
+                              <td>標題:</td>
+                              <td>價錢:</td>
+                              <td>人數:</td>
+                              <td>狀態:</td>
                             </tr>
                           </thead>
                           <tbody>
@@ -123,49 +139,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 panel-item">
+        </div>
+        <div class="row">
+            <div class="col-sm-12 panel-item">
                 <div class="user-info ueat">
                     <div class="box-body">
                         <h3>我當食客 :</h3>
                         <table class="table ueatt">
                           <thead>
                             <tr class="info">
-                              <td>Time:</td>
-                              <td>Title:</td>
-                              <td>Location:</td>
-                              <td>Price:</td>
-                              <td>Status:</td>
+                              <td>時間:</td>
+                              <td>標題:</td>
+                              <td>價錢:</td>
+                              <td>人數:</td>
+                              <td>狀態:</td>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="warning">
-                              <td>___</td>
-                              <td>---</td>
-                              <td>___</td>
-                              <td>---</td>
-                              <td>___</td>
-                            </tr>
-                            <tr class="danger">
-                              <td>...</td>
-                              <td>...</td>
-                              <td>...</td>
-                              <td>...</td>
-                              <td>...</td>
-                            </tr>
-                            <tr class="warning">
-                              <td>___</td>
-                              <td>---</td>
-                              <td>___</td>
-                              <td>---</td>
-                              <td>___</td>
-                            </tr>
-                            <tr class="danger">
-                              <td>...</td>
-                              <td>...</td>
-                              <td>...</td>
-                              <td>...</td>
-                              <td>...</td>
-                            </tr>
                           </tbody>
                         </table>
                     </div>

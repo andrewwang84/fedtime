@@ -82,8 +82,37 @@
         </div>
         <div class="row">
             <div class="col-lg-1"></div>
-            <div class="col-lg-5">
-                <img src="images/3277671_1.jpg" class="img-responsive img-rounded" alt="Responsive image">
+            <!--<div class="col-lg-5">
+                <img id="simg" class="img-responsive img-rounded" alt="Responsive image">
+            </div>-->
+            <div id='carousel-custom' class='carousel slide col-lg-5' data-ride='carousel'>
+              <div class='carousel-outer'>
+                  <!-- Wrapper for slides -->
+                  <div class='carousel-inner'>
+                      <div class='item active'>
+                          <img id="simg" class="img-responsive img-rounded" alt="Responsive image"/>
+                      </div>
+                      <div class='item'>
+                          <img src='http://placehold.it/350x350&text=slide2' alt='' />
+                      </div>
+                      <div class='item'>
+                          <img src='http://placehold.it/350x350&text=slide3' alt='' />
+                      </div>
+                  </div>
+                  <!-- Controls -->
+                  <a class='left carousel-control' href='#carousel-custom' data-slide='prev'>
+                      <span class='glyphicon glyphicon-chevron-left'></span>
+                  </a>
+                  <a class='right carousel-control' href='#carousel-custom' data-slide='next'>
+                      <span class='glyphicon glyphicon-chevron-right'></span>
+                  </a>
+              </div>
+              <!-- Indicators -->
+              <ol class='carousel-indicators mCustomScrollbar'>
+                  <li data-target='#carousel-custom' data-slide-to='0' class='active'><img id="simgt" class="img-rounded" alt=""/></li>
+                  <li data-target='#carousel-custom' data-slide-to='1'><img src='http://placehold.it/145x80&text=slide2' alt='' /></li>
+                  <li data-target='#carousel-custom' data-slide-to='2'><img src='http://placehold.it/145x80&text=slide3' alt='' /></li>
+              </ol>
             </div>
             <div class="col-lg-5">
                 <dl class="dl-horizontal">
@@ -92,7 +121,7 @@
                   <dt><h2>開飯時間: </h2></dt>
                   <dd><h3 id="sstartt"></h3></dd>
                   <dt><h2>開放人數: </h2></dt>
-                  <dd><h3 id="scnum"></h3></dd>
+                  <dd><h3 id="scnum" class="text-success"></h3><h3 class="cosname"></h3></dd>
                   <dt><h2>價錢: </h2></dt>
                   <dd><h3 id="sprice"></h3></dd>
                   <dt><h2>地點: </h2></dt>
@@ -100,6 +129,12 @@
                   <dt><h2>附註: </h2></dt>
                   <dd><h3 id="sother"></h3></dd>
                 </dl>
+                <div class="btn-wrap">
+                  <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-warning" id="join">我要吃</button>
+                    <button type="button" class="btn btn-warning" id="likeshop"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp追蹤</button>
+                  </div>
+                </div>
             </div>
             <div class="col-lg-1"></div>
         </div>

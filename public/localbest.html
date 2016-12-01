@@ -14,7 +14,7 @@
     <script src="https://use.fontawesome.com/52efba598b.js"></script>
     <link rel="stylesheet" href="stylesheets/index.css">
   </head>
-  <body>
+  <body onload="initMap()">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -104,17 +104,16 @@
         </div>
         <div class="row">
           <!-- 16:9 aspect ratio -->
-          <div class="col-md-8 embed-responsive embed-responsive-16by9">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.8562744192727!2d120.96051331445113!3d23.965521984483743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDU3JzU1LjkiTiAxMjDCsDU3JzQ1LjciRQ!5e0!3m2!1szh-TW!2stw!4v1476121967978" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <div class="col-md-8 embed-responsive embed-responsive-16by9" id="map" style="width:600px; height:100%">
           </div>
           <div class="col-md-4">
-              <h1 id="shoptitle">青醬海鮮義大利麵</h1>
-              <h3 id="chefname">林承翰</h3>
+              <h1 id="shoptitle"></h1>
+              <h3 id="chefname"></h3>
               <p class="lead title" id="chefstars">
               <img src="images/3277671_1.jpg" class="img-responsive img-rounded" alt="Responsive image">
-              <h3 id="sstartt">開飯時間: 2016-10-25, 18:00</h3>
-              <h3 id="scnum">開放人數: 3(尚有兩位)</h3>
-              <h3 id="sprice">價錢: $120/人</h3>
+              <h3 id="sstartt">開飯時間: </h3>
+              <h3 id="scnum">開放人數: </h3>
+              <h3 id="sprice">價錢: </h3>
               <div class="btn-wrap">
                   <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-warning" id="checkshop">詳細資訊</button>
@@ -137,5 +136,6 @@
     <!-- 最新編譯和最佳化的 JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="javascripts/index.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWObP3iREGGEQXj_aTQ6lKvWBO7tbMPl4&language=zh_TW"></script>
 </body>
 </html>

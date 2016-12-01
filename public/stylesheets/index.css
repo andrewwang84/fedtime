@@ -10,17 +10,64 @@ body{
   margin-bottom: 60px;
   padding-top: 55px;
 }
+.infow{
+  text-align: center;
+}
+#carousel-custom {
+    margin: 20px auto;
+    /*width: 400px;*/
+}
+#carousel-custom .carousel-indicators {
+  margin: 10px 0 0;
+  overflow: auto;
+  position: static;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+}
+#carousel-custom .carousel-indicators li {
+  background-color: transparent;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  display: inline-block;
+  height: auto;
+  margin: 0 !important;
+  width: auto;
+}
+.carousel-outer {
+  min-height: 350px;
+}
+#carousel-custom .carousel-indicators li img {
+  display: block;
+  opacity: 0.5;
+}
+#carousel-custom .carousel-indicators li.active img {
+  opacity: 1;
+}
+#carousel-custom .carousel-indicators li:hover img {
+  opacity: 0.75;
+}
+#carousel-custom .carousel-outer {
+  position: relative;
+}
+#simgt {
+  height: 80px;
+  width: 145px
+}
+#preview img{
+  height: 200px;
+}
 .navbar-right{
   padding-right: 5px;
 }
 .wrap{
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 .wrap span{
-    position: absolute;
-    top: 8px;
-    right: 10px;
+  position: absolute;
+  top: 8px;
+  right: 10px;
 }
 .btn-wrap{
   text-align: center;
@@ -65,12 +112,12 @@ div .btn-group{
   width: 75%;
   margin: auto;
 }
-.carousel-inner{
+/*.carousel-inner{
   margin-bottom: 15px;
-}
+}*/
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  max-height: 550px;    /* Set slide height here */
+  max-height: 500px;    /* Set slide height here */
   opacity: 0.85;
 }
 .carousel-caption{
@@ -180,6 +227,7 @@ div .btn-group{
   width: 100%;
   height: 60px;
   text-align: center;
+  padding-top: 12px;
 }
 .navbar {
   margin-bottom: 0;
