@@ -34,15 +34,10 @@
             <li class="active"><a href="bestchef.html">人氣大廚 <span class="sr-only">(current)</span></a></li>
             <li><a href="localbest.html">區域美食 </a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search" action="/search.html">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" id="search_tag" name="search_tag">
-            </div>
-            <button type="submit" class="btn btn-default" id="search_go">Search</button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <p class="login navbar-text" id="fbnav"></p>
-            <button type="button" class="btn btn-warning navbar-btn login newshopbtn">開新飯局</button>
+            <button type="button" class="btn btn-warning navbar-btn newshopbtn chefbtn">開新飯局</button>
+            <button type="button" class="btn btn-warning navbar-btn searchbtn">搜尋</button>
             <button type="button" class="btn btn-warning navbar-btn login" id="profilebtn">我的首頁</button>
             <button type="button" class="btn btn-warning navbar-btn logout" data-toggle="modal" data-target="#logincontent-fb">Login</button>
             <button type="button" class="btn btn-warning navbar-btn login logoutbtn">Logout</button>
@@ -100,55 +95,7 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
-            <div class="row col-sm-6 panel-item bcbox">
-                <div class="col-xs-4 col-sm-6 bcbox-l">
-                    <img src="images/aaa.jpg">
-                </div>
-                <div class="col-xs-4 col-sm-6 bcbox-r wrap">
-                    <h3>Andrew Wang</h3>
-                    <span class="likestar"><i class="fa fa-lg fa-star-o" aria-hidden="true"></i></span>
-                    <h3 id="sstartt">專長: 十項全能</h3>
-                    <h3 id="scnum">評分: 5/5</h3>
-                    <h3 id="sprice">追蹤人數: 9999人</h3>
-                </div>
-            </div>
-            <div class="row col-sm-6 panel-item bcbox">
-                <div class="col-xs-4 col-sm-6 bcbox-l">
-                    <img src="images/chef (2).jpg">
-                </div>
-                <div class="col-xs-4 col-sm-6 bcbox-r wrap">
-                    <h3>Yi-Chun</h3>
-                    <span class="likestar"><i class="fa fa-lg fa-star-o" aria-hidden="true"></i></span>
-                    <h3 id="sstartt">專長: 美式漢堡，義式披薩</h3>
-                    <h3 id="scnum">評分: 4.5/5</h3>
-                    <h3 id="sprice">追蹤人數: 4852人</h3>
-                </div>
-            </div>
-            <div class="row col-sm-6 panel-item bcbox">
-                <div class="col-xs-4 col-sm-6 bcbox-l">
-                    <img src="images/chef (3).jpg">
-                </div>
-                <div class="col-xs-4 col-sm-6 bcbox-r wrap">
-                    <h3>林大翰</h3>
-                    <span class="likestar"><i class="fa fa-lg fa-star-o" aria-hidden="true"></i></span>
-                    <h3 id="sstartt">專長: 台式熱炒，義式焗烤</h3>
-                    <h3 id="scnum">評分: 4/5</h3>
-                    <h3 id="sprice">追蹤人數: 2934人</h3>
-                </div>
-            </div>
-            <div class="row col-sm-6 panel-item bcbox">
-                <div class="col-xs-4 col-sm-6 bcbox-l">
-                    <img src="images/chef (4).jpg">
-                </div>
-                <div class="col-xs-4 col-sm-6 bcbox-r wrap">
-                    <h3>顧圓生</h3>
-                    <span class="likestar"><i class="fa fa-lg fa-star-o" aria-hidden="true"></i></span>
-                    <h3 id="sstartt">專長: 各式火鍋，香菇料理</h3>
-                    <h3 id="scnum">評分: 4/5</h3>
-                    <h3 id="sprice">追蹤人數: 2566人</h3>
-                </div>
-            </div>
+        <div class="row chefdisplay">
         </div>
     </div>
     <footer class="footer">

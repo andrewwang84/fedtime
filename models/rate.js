@@ -3,7 +3,11 @@ var Schema = mongoose.Schema;
 
 var rate = new Schema({
 	"_id" : String,
-    "rnum" : Number,
+	"shopid" : String,
+	"chefid" : String,
+    "overall" : Number,
+    "place" : Number,
+    "food" : Number,
     "rcontent" : String
 }, {
     versionKey: false

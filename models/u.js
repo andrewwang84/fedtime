@@ -9,9 +9,17 @@ var u = new Schema({
 	"type" : String,
     "agree" : String,
     "rate" : Number,
+    "foodrate" : Number,
+    "placerate" : Number,
     "sex" : String,
     "shop_suc" : Number,
-    "shop_fail" : Number
+    "shop_fail" : Number,
+    "shop_mean_nocook" : Number,
+    "shop_mean_noeat" : Number,
+    "follower" : Number,
+    "telant" : String,
+    "words" : String,
+    "img" : String
 }, {
     versionKey: false
 });

@@ -36,15 +36,10 @@
             <li><a href="bestchef.html">人氣大廚 </a></li>
             <li class="active"><a href="localbest.html">區域美食 <span class="sr-only">(current)</span></a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search" action="/search.html">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" id="search_tag" name="search_tag">
-            </div>
-            <button type="submit" class="btn btn-default" id="search_go">Search</button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <p class="login navbar-text" id="fbnav"></p>
-            <button type="button" class="btn btn-warning navbar-btn login newshopbtn">開新飯局</button>
+            <button type="button" class="btn btn-warning navbar-btn newshopbtn chefbtn">開新飯局</button>
+            <button type="button" class="btn btn-warning navbar-btn searchbtn">搜尋</button>
             <button type="button" class="btn btn-warning navbar-btn login" id="profilebtn">我的首頁</button>
             <button type="button" class="btn btn-warning navbar-btn logout" data-toggle="modal" data-target="#logincontent-fb">Login</button>
             <button type="button" class="btn btn-warning navbar-btn login logoutbtn">Logout</button>
@@ -107,17 +102,16 @@
           <div class="col-md-8 embed-responsive embed-responsive-16by9" id="map" style="width:600px; height:100%">
           </div>
           <div class="col-md-4">
-              <h1 id="shoptitle"></h1>
-              <h3 id="chefname"></h3>
-              <p class="lead title" id="chefstars">
-              <img src="images/3277671_1.jpg" class="img-responsive img-rounded" alt="Responsive image">
-              <h3 id="sstartt">開飯時間: </h3>
-              <h3 id="scnum">開放人數: </h3>
-              <h3 id="sprice">價錢: </h3>
+              <h1 class="mapcontent" id="shoptitle"></h1>
+              <h3 class="mapcontent" id="chefname"></h3>
+              <img src="" class="img-responsive img-rounded" id="shopimg">
+              <h3 class="mapcontent" id="sstartt"></h3>
+              <h3 class="mapcontent" id="scnum"></h3>
+              <h3 class="mapcontent" id="sprice"></h3>
               <div class="btn-wrap">
                   <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-warning" id="checkshop">詳細資訊</button>
-                    <button type="button" class="btn btn-warning" id="likechef"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp追蹤</button>
+                    <button type="button" class="btn btn-warning login" id="likechef"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp追蹤</button>
                   </div>
               </div>
           </div>
@@ -133,8 +127,11 @@
     </footer>
     <!-- jQuery (Bootstrap 所有外掛均需要使用) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <!-- 最新編譯和最佳化的 JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="javascripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="javascripts/sweetalert.min.js"></script>
     <script src="javascripts/index.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWObP3iREGGEQXj_aTQ6lKvWBO7tbMPl4&language=zh_TW"></script>
 </body>

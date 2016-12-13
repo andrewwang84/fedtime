@@ -2,56 +2,44 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Shop = require('../models/shop.js');
+var Meannocook = require('../models/meannocook.js');
 
 //Get
 router.get('/', function(req, res, next) {
-  Shop.find(function (err, shop) {
+  Meannocook.find(function (err, meannocook) {
     if (err) return next(err);
-    res.json(shop);
+    res.json(meannocook);
   });
 });
 router.get('/:id', function(req, res, next) {
-  Shop.findOne({_id:req.params.id}, function (err, post) {
+  Meannocook.findOne({_id:req.params.id}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 router.get('/s/:id', function(req, res, next) {
-  Shop.find({uid:req.params.id}, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-router.get('/c/:id', function(req, res, next) {
-  Shop.find({customerid:req.params.id}, function (err, post) {
+  Meannocook.find({shopid:req.params.id}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 //Post
 router.post('/', function(req, res, next) {
-  Shop.create(req.body, function (err, post) {
+  Meannocook.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 //Patch
 router.patch('/:id', function(req, res, next) {
-  Shop.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-router.patch('/join/:id', function(req, res, next) {
-  Shop.findByIdAndUpdate(req.params.id, { $push: req.body } , function (err, post) {
+  Meannocook.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 //Delete
 router.delete('/:id', function(req, res, next) {
-  Shop.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Meannocook.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

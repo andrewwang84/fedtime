@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <!-- 選擇性佈景主題 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://use.fontawesome.com/52efba598b.js"></script>
     <link rel="stylesheet" href="stylesheets/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="stylesheets/sweetalert.css">
     <link rel="stylesheet" href="stylesheets/index.css">
   </head>
-  <body>
+  <body onload="initMap3()">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,15 +36,10 @@
             <li><a href="bestchef.html">人氣大廚 </a></li>
             <li><a href="localbest.html">區域美食 </a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search" action="/search.html">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" id="search_tag" name="search_tag">
-            </div>
-            <button type="submit" class="btn btn-default" id="search_go">Search</button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <p class="login navbar-text" id="fbnav"></p>
-            <button type="button" class="btn btn-warning navbar-btn login newshopbtn">開新飯局</button>
+            <button type="button" class="btn btn-warning navbar-btn newshopbtn chefbtn">開新飯局</button>
+            <button type="button" class="btn btn-warning navbar-btn searchbtn">搜尋</button>
             <button type="button" class="btn btn-warning navbar-btn login" id="profilebtn">我的首頁</button>
             <button type="button" class="btn btn-warning navbar-btn logout" data-toggle="modal" data-target="#logincontent-fb">Login</button>
             <button type="button" class="btn btn-warning navbar-btn login logoutbtn">Logout</button>
@@ -71,6 +67,25 @@
         </div>
       </div>
     </div>
+    <div class="modalspace"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModalmap1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">位置</h4>
+          </div>
+          <div class="modal-body">
+            <div class="col-md-8 embed-responsive embed-responsive-16by9" id="map" style="width:100%; height:100%">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-1"></div>
@@ -82,21 +97,18 @@
         </div>
         <div class="row">
             <div class="col-lg-1"></div>
-            <!--<div class="col-lg-5">
-                <img id="simg" class="img-responsive img-rounded" alt="Responsive image">
-            </div>-->
             <div id='carousel-custom' class='carousel slide col-lg-5' data-ride='carousel'>
               <div class='carousel-outer'>
                   <!-- Wrapper for slides -->
-                  <div class='carousel-inner'>
+                  <div class='carousel-inner' id="shopcinner">
                       <div class='item active'>
-                          <img id="simg" class="img-responsive img-rounded" alt="Responsive image"/>
+                          <img id="simg0" class="simgs img-responsive img-rounded" alt=""/>
                       </div>
                       <div class='item'>
-                          <img src='http://placehold.it/350x350&text=slide2' alt='' />
+                          <img id="simg1" class="simgs img-responsive img-rounded" alt=""/>
                       </div>
                       <div class='item'>
-                          <img src='http://placehold.it/350x350&text=slide3' alt='' />
+                          <img id="simg2" class="simgs img-responsive img-rounded" alt=""/>
                       </div>
                   </div>
                   <!-- Controls -->
@@ -109,9 +121,9 @@
               </div>
               <!-- Indicators -->
               <ol class='carousel-indicators mCustomScrollbar'>
-                  <li data-target='#carousel-custom' data-slide-to='0' class='active'><img id="simgt" class="img-rounded" alt=""/></li>
-                  <li data-target='#carousel-custom' data-slide-to='1'><img src='http://placehold.it/145x80&text=slide2' alt='' /></li>
-                  <li data-target='#carousel-custom' data-slide-to='2'><img src='http://placehold.it/145x80&text=slide3' alt='' /></li>
+                  <li data-target='#carousel-custom' data-slide-to='0' class='active'><img id="simgt0" class="img-rounded" alt=""/></li>
+                  <li data-target='#carousel-custom' data-slide-to='1'><img id="simgt1" class="img-rounded" alt=""/></li>
+                  <li data-target='#carousel-custom' data-slide-to='2'><img id="simgt2" class="img-rounded" alt=""/></li>
               </ol>
             </div>
             <div class="col-lg-5">
@@ -131,12 +143,33 @@
                 </dl>
                 <div class="btn-wrap">
                   <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-warning" id="join">我要吃</button>
-                    <button type="button" class="btn btn-warning" id="likeshop"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp追蹤</button>
+                    <button type="button" class="btn btn-warning login" id="join">我要吃</button>
+                    <button type="button" class="btn btn-warning login" id="likeshop"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp追蹤</button>
                   </div>
                 </div>
             </div>
             <div class="col-lg-1"></div>
+        </div>
+        <div clas="row QA">
+          <div class="content">
+            <div class="comments">
+              <div class="editor">
+                <div class="editor-header">
+                  <h5>Q&A</h5>
+                </div>
+                <div id="text" class="editor-content" contenteditable>
+                </div>
+              </div>
+              <div class="insert-text">
+                <span class="loading">Loading...</span>
+                <p class="sendbtn">
+                  <input type="submit" value="Comment" class="login"/>
+                </p>
+              </div>
+              <div class="list-comments">
+              </div>
+            </div>
+          </div>
         </div>
     </div>
     <footer class="footer">
@@ -152,7 +185,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <!-- 最新編譯和最佳化的 JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="javascripts/bootstrap-datetimepicker.min.js"></script>
     <script src="javascripts/sweetalert.min.js"></script>
     <script src="javascripts/index.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWObP3iREGGEQXj_aTQ6lKvWBO7tbMPl4&language=zh_TW"></script>
 </body>
 </html>

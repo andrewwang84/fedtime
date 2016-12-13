@@ -19,7 +19,7 @@ var shop = new Schema({
     "phone" : String,
     "customerid" : Array,
     "s_else" : String,
-    "s_pic" : String,
+    "s_pic" : Array,
     "final" : String
 }, {
     versionKey: false

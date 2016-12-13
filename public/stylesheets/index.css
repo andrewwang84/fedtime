@@ -10,8 +10,210 @@ body{
   margin-bottom: 60px;
   padding-top: 55px;
 }
+.favchefimg{
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+}
+.favchefimg:hover{
+  cursor: pointer;
+}
+.caption {
+  width:100%;
+  bottom: .3rem;
+  position: absolute;
+  background:#000;
+  background: -webkit-linear-gradient(bottom, #000 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  background: -moz-linear-gradient(bottom, #000 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  background: -o-linear-gradient(bottom, #000 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  background: linear-gradient(to top, #000 40%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.thumbnail {
+  border: 0 none;
+  box-shadow: none;
+  margin:0;
+  padding:0;
+}
+.caption h4 {
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.telantinput{
+  display: none;
+}
+.chefwordinput{
+  display: none;
+}
+.panel-itemsearch{
+  min-height: 450px;
+}
+.panel-items{
+  min-height: 360px;
+}
+.media{
+  margin: 20px 0;
+  padding:20px;
+}
+.modal-body{
+  overflow: hidden;
+}
+.cuslink{
+  color:#337ab7;
+}
+.cuslink:hover{
+  color:#23527c;
+  cursor: pointer;
+  text-decoration: underline;
+}
+/*start of comment*/
+textarea{
+  resize: none;
+  outline: none;
+  width: 394px;
+  font-family: tahoma;
+  background: #f9f9f9;
+}
+textarea:focus{
+  background: #fff;
+}
+input[type="submit"]{
+  width: 400px;
+  padding: 5px 0px;
+  font-weight: bold;
+  margin-top: -6px;
+}
+.content{
+  width: 100%;
+}
+.comments{
+  width: 400px;
+  margin: 30px auto;
+}
+.insert-text{
+  position: relative;
+}
+.insert-text .loading{
+  position: absolute;
+  bottom: -25px;
+  display: none;
+}
+.editor{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.editor-header{
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+.editor-content{
+  padding: 10px;
+  outline: none;
+  min-height: 80px;
+  background: #f9f9f9;
+  border-radius: 0px 0px 5px 5px;
+}
+.editor-content:focus{
+  background: #fff;
+}
+.list-comments{
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+}
+.list-comments > div{
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.list-comments > div:last-child{
+  border-bottom: none;
+}
+.sendbtn{
+  line-height: 20px;
+}
+[class^="menu"] {
+  position: relative;
+  top: 6px;
+  display: block;
+  width: 27px;
+  height: 2px;
+  margin: 0 auto;
+  background: #999;
+}
+[class^="menu"]:before {
+  content: '';
+  top: -5px;
+  width: 80%;
+  position: relative;
+  display: block;
+  height: 2px;
+  margin: 0 auto;
+  background: #999;
+}
+[class^="menu"]:after {
+  content: '';
+  top: 3px;
+  width: 80%;
+  position: relative;
+  display: block;
+  height: 2px;
+  margin: 0 auto;
+  background: #999;
+}
+.menu-left {
+  margin-right: 5px;
+}
+.menu-left:before{
+  margin-right: 5px;
+}
+.menu-left:after{
+  margin-right: 5px;
+}
+.menu-right {
+  margin-left: 5px;
+}
+.menu-right:before{
+  margin-left: 5px;
+}
+.menu-right:after{
+  margin-left: 5px;
+}
+/*end of comment*/
+.searchfilter{
+  padding: 5px;
+  max-width: 300px;
+  padding-bottom: 8px;
+}
+.hiddeninfo{
+  display: none;
+}
+.searchbox{
+  padding:10px;
+  padding-bottom: 4px;
+}
+.chefbtn{
+  display: none;
+}
+.chefid{
+  display: none;
+}
 .infow{
   text-align: center;
+}
+.indeximg>img{
+  width: 75%;
+  margin: auto;
+}
+/*.carousel-inner{
+  margin-bottom: 15px;
+}*/
+#carousel-index > .indeximg > img,
+#carousel-index > .indeximg > a > img {
+  max-height: 500px;    /* Set slide height here */
+  opacity: 0.85;
+}
+.carousel-caption{
+  color: #FF206E;
+  -webkit-text-stroke: 0.5px #ffff00;
 }
 #carousel-custom {
     margin: 20px auto;
@@ -50,8 +252,34 @@ body{
 #carousel-custom .carousel-outer {
   position: relative;
 }
-#simgt {
-  height: 80px;
+#simg1{
+  height: 350px;
+  width: auto;
+  margin: auto;
+  overflow: hidden;
+}
+#simg2{
+  height: 350px;
+  width: auto;
+  margin: auto;
+  overflow: hidden;
+}
+#simg0{
+  height: 350px;
+  width: auto;
+  margin: auto;
+  overflow: hidden;
+}
+#simgt0 {
+  height: 100px;
+  width: 145px
+}
+#simgt1 {
+  height: 100px;
+  width: 145px
+}
+#simgt2 {
+  height: 100px;
   width: 145px
 }
 #preview img{
@@ -108,22 +336,6 @@ div .btn-group{
   width: 75%;
   margin: auto;
 }
-.item>img{
-  width: 75%;
-  margin: auto;
-}
-/*.carousel-inner{
-  margin-bottom: 15px;
-}*/
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  max-height: 500px;    /* Set slide height here */
-  opacity: 0.85;
-}
-.carousel-caption{
-  color: #FF206E;
-  -webkit-text-stroke: 0.5px #ffff00;
-}
 #tag{
   min-height: 120px;
 }
@@ -176,7 +388,7 @@ div .btn-group{
   overflow: hidden;
 }
 .box .box-body {
-  border: 2px solid  #eaedf2;
+  border: 3px solid  #eaedf2;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 0 10px 20px 10px;
@@ -203,7 +415,7 @@ div .btn-group{
   overflow: hidden;
   min-height: 200px;
   padding-right: 0px;
-  border: 2px solid  #eaedf2;
+  border: 3px solid  #eaedf2;
 }
 .bcbox .bcbox-l{
   border-bottom-left-radius: 8px;
@@ -214,7 +426,7 @@ div .btn-group{
 }
 .bcbox .bcbox-r{
   min-height: 262.5px;
-  border: 2px solid  #eaedf2;
+  border: 3px solid  #eaedf2;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   padding-left: 0px;
@@ -288,32 +500,6 @@ div .btn-group{
 .navbar-default .navbar-link:hover {
   color: #df255b;
 }
-/*.jumbotron {
-  background: url(../images/food-stock-photo-9.jpg) no-repeat center center;
-  background-size: cover;
-  min-height: 550px;
-  padding: 0;
-  text-align: center;
-}
-.jombo-text{
-  margin:0;
-}
-.jumbotron .tagline {
-  color: #ffff00;
-  font-size: 80px;
-  text-shadow: 10px 10px 20px #FF206E;
-}
-.jumbotron .lead {
-  color: #ffff00;
-  font-size: 30px;
-  text-shadow: 10px 10px 20px #FF206E;
-}
-.jumbotron [class*="col-"] {
-  height: 250px;
-  margin-top:15%;
-  margin-bottom:15%;
-  overflow: hidden;
-}*/
 @media only screen and (min-width: 1200px) {
   .carousel-topic{
     font-size: 60px;
@@ -324,13 +510,18 @@ div .btn-group{
   .carousel-inner>.item{
     margin-bottom: 15px;
   }
+  #shopcinner>.item{
+    margin-bottom: 0px;
+  }
 }
 /* Smaller than standard 960 (devices and browsers) */
-@media only screen and (max-width: 959px) {
-
+@media only screen and (max-width: 1024px) {
+  .bcbox .bcbox-r{
+    min-height: 216.5px;
+  }
 }
 /* Tablet Portrait size to standard 960 (devices and browsers) */
-@media only screen and (min-width: 768px) and (max-width: 1100px) {
+@media only screen and (min-width: 768px) and (max-width: 893px) {
   body {
     padding-top: 105px;
   }
