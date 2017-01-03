@@ -87,6 +87,99 @@
         </div>
       </div>
     </div>
+    <div class="modalspace">
+      <div class="modal fade" id="rmodalexample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" id="closebtn" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h3 class="modal-title"><i class="fa fa-file-text" id="myModalLabel" aria-hidden="true"></i>&nbsp給評價</h3>
+            </div>
+            <div class="modal-body rmodalbody">
+              <div class="ratio" id="rdemo">
+                <h4> Andrew Wang </h4>
+                <div>
+                  <h5>整體評價: </h5>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo1" id="inlineRadio1" value="option1"> 1
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo1" id="inlineRadio2" value="option2"> 2
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo1" id="inlineRadio3" value="option3"> 3
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo1" id="inlineRadio4" value="option4"> 4
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo1" id="inlineRadio5" value="option5"> 5
+                  </label>
+                </div>
+                <div>
+                  <h5>餐點評價: </h5>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo2" id="inlineRadio1" value="option1"> 1
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo2" id="inlineRadio2" value="option2"> 2
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo2" id="inlineRadio3" value="option3"> 3
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo2" id="inlineRadio4" value="option4"> 4
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo2" id="inlineRadio5" value="option5"> 5
+                  </label>
+                </div>
+                <div>
+                  <h5>用餐環境: </h5>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo3" id="inlineRadio1" value="option1"> 1
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo3" id="inlineRadio2" value="option2"> 2
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo3" id="inlineRadio3" value="option3"> 3
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo3" id="inlineRadio4" value="option4"> 4
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptionsdemo3" id="inlineRadio5" value="option5"> 5
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="rsubexample">OK</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="bmodalexample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h3 class="modal-title"><i class="fa fa-file-text" id="myModalLabel" aria-hidden="true"></i>&nbsp檢舉</h3>
+            </div>
+            <div class="modal-body bmodalbody text-center">
+              <h4>請將檢舉緣由以及證據(相片、影片為佳)傳送至以下網址，將有專人為您服務</h4>
+              <a href="https://www.facebook.com/messages/1624607824511909">Click Me!!</a>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="bsubexample">OK</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -144,11 +237,11 @@
                                 <thead>
                                   <tr class="info">
                                     <td class="col-sm-3">時間:</td>
-                                    <td class="col-sm-3">標題:</td>
+                                    <td class="col-sm-2">標題:</td>
                                     <td class="col-sm-2">價錢:</td>
                                     <td class="col-sm-1">人數:</td>
                                     <td class="col-sm-1">狀態:</td>
-                                    <td class="col-sm-2">選項:</td>
+                                    <td class="col-sm-3 text-center">選項:</td>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -167,11 +260,11 @@
                                 <thead>
                                   <tr class="info">
                                     <td class="col-sm-3">時間:</td>
-                                    <td class="col-sm-3">標題:</td>
+                                    <td class="col-sm-2">標題:</td>
                                     <td class="col-sm-2">大廚:</td>
                                     <td class="col-sm-1">價錢:</td>
                                     <td class="col-sm-1">狀態:</td>
-                                    <td class="col-sm-2">選項:</td>
+                                    <td class="col-sm-3 text-center">選項:</td>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -197,10 +290,17 @@
                                     <td>整體評價:</td>
                                     <td>餐點評價:</td>
                                     <td>用餐環境:</td>
-                                    <td>評語:</td>
                                   </tr>
                                 </thead>
                                 <tbody>
+                                    <tr class="success">
+                                    <td>2016-12-08, 18:00</td>
+                                    <td>滷肉飯</td>
+                                    <td>Man Kit Wong</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>4</td>
+                                  </tr>
                                 </tbody>
                               </table>
                           </div>

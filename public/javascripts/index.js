@@ -240,47 +240,49 @@ function initMap() {
           lng = ""
       var geocoder = new google.maps.Geocoder();
       $.each(data, function(index, element) {
-        var url='/shops.html?_id='+ data[i]._id,
-            addr = data[i].loc,
-            title = data[i].title,
-            name = data[i].uname,
-            cost = data[i].cost,
-            img = data[i].s_pic,
-            date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A"),
-            cnum = data[i].cnum
-        geocoder.geocode({
-          'address': addr
-        }, function (results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            marker = new google.maps.Marker({
-              position: new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()),
-              map: map,
-              icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-            });
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-              return function() {
-                infowindow.setContent(
-                  '<div class="infow">' +
-                  '<a href="' + url + '"><h5>' + title + '</h5></a>' +
-                  '<h6>by ' + name + '</h6>' +
-                  '<h6>每人: ' + cost + '</h6>' +
-                  '</div>'
-                );
-                infowindow.open(map, marker);
-                $('.mapcontent').empty();
-                $('#shoptitle').append(title);
-                $('#chefname').append("By "+name);
-                $("#shopimg").attr('src',img);
-                $("#sstartt").append("時間: "+date);
-                $("#scnum").append("人數: "+cnum);
-                $("#sprice").append("價錢: NT$"+cost);
-                $('#checkshop').click(function() {
-                  window.location.href = url;
-                });
-              }
-            })(marker, i));
-          }
-        });
+        if(data[i].final==0){
+          var url='/shops.html?_id='+ data[i]._id,
+              addr = data[i].loc,
+              title = data[i].title,
+              name = data[i].uname,
+              cost = data[i].cost,
+              img = data[i].s_pic[0],
+              date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A"),
+              cnum = data[i].cnum
+          geocoder.geocode({
+            'address': addr
+          }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              marker = new google.maps.Marker({
+                position: new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+              });
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infowindow.setContent(
+                    '<div class="infow">' +
+                    '<a href="' + url + '"><h5>' + title + '</h5></a>' +
+                    '<h6>by ' + name + '</h6>' +
+                    '<h6>每人: ' + cost + '</h6>' +
+                    '</div>'
+                  );
+                  infowindow.open(map, marker);
+                  $('.mapcontent').empty();
+                  $('#shoptitle').append(title);
+                  $('#chefname').append("By "+name);
+                  $("#shopimg").attr('src',img);
+                  $("#sstartt").append("時間: "+date);
+                  $("#scnum").append("人數: "+cnum);
+                  $("#sprice").append("價錢: NT$"+cost);
+                  $('#checkshop').click(function() {
+                    window.location.href = url;
+                  });
+                }
+              })(marker, i));
+            }
+          });
+        }
         i++;
       });
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -661,8 +663,8 @@ function search() {
                   '</div>' +
               '</div>'
             );
-            i++;
           }
+          i++;
         });
       }
   });
@@ -700,10 +702,10 @@ function search() {
               var url='/shops.html?_id='+ data[i]._id;
               date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A");
               $('.searchdisplay > .searchdisplayr').append(
-                '<div class="col-sm-4 panel-item result">' +
+                '<div class="col-sm-4 panel-itemsearch result">' +
                     '<div class="box col-sm-12" onclick="location.href=\''+ url +'\';">' +
                         '<div class="box-heading">' +
-                            '<img src="images/festive-food-1388406500q51.jpg">' +
+                            '<img src="'+data[i].s_pic[0]+'">' +
                         '</div>' +
                         '<div class="box-body col-sm-12">' +
                             '<h3>'+ data[i].title +'</h3>'+
@@ -722,8 +724,8 @@ function search() {
                 '</div>'
               );
             }
-            i++;
           }
+          i++;
         });
       }
     });
@@ -744,10 +746,10 @@ function search() {
               var url='/shops.html?_id='+ data[i]._id;
               date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A");
               $('.searchdisplay > .searchdisplayr').append(
-                '<div class="col-sm-4 panel-item result">' +
+                '<div class="col-sm-4 panel-itemsearch result">' +
                     '<div class="box col-sm-12" onclick="location.href=\''+ url +'\';">' +
                         '<div class="box-heading">' +
-                            '<img src="images/festive-food-1388406500q51.jpg">' +
+                            '<img src="'+data[i].s_pic[0]+'">' +
                         '</div>' +
                         '<div class="box-body col-sm-12">' +
                             '<h3>'+ data[i].title +'</h3>'+
@@ -770,10 +772,10 @@ function search() {
               var url='/shops.html?_id='+ data[i]._id;
               date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A");
               $('.searchdisplay > .searchdisplayr').append(
-                '<div class="col-sm-4 panel-item result">' +
+                '<div class="col-sm-4 panel-itemsearch result">' +
                     '<div class="box col-sm-12" onclick="location.href=\''+ url +'\';">' +
                         '<div class="box-heading">' +
-                            '<img src="images/festive-food-1388406500q51.jpg">' +
+                            '<img src="'+data[i].s_pic[0]+'">' +
                         '</div>' +
                         '<div class="box-body col-sm-12">' +
                             '<h3>'+ data[i].title +'</h3>'+
@@ -796,10 +798,10 @@ function search() {
               var url='/shops.html?_id='+ data[i]._id;
               date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A");
               $('.searchdisplay > .searchdisplayr').append(
-                '<div class="col-sm-4 panel-item result">' +
+                '<div class="col-sm-4 panel-itemsearch result">' +
                     '<div class="box col-sm-12" onclick="location.href=\''+ url +'\';">' +
                         '<div class="box-heading">' +
-                            '<img src="images/festive-food-1388406500q51.jpg">' +
+                            '<img src="'+data[i].s_pic[0]+'">' +
                         '</div>' +
                         '<div class="box-body col-sm-12">' +
                             '<h3>'+ data[i].title +'</h3>'+
@@ -822,10 +824,10 @@ function search() {
               var url='/shops.html?_id='+ data[i]._id;
               date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A");
               $('.searchdisplay > .searchdisplayr').append(
-                '<div class="col-sm-4 panel-item result">' +
+                '<div class="col-sm-4 panel-itemsearch result">' +
                     '<div class="box col-sm-12" onclick="location.href=\''+ url +'\';">' +
                         '<div class="box-heading">' +
-                            '<img src="images/festive-food-1388406500q51.jpg">' +
+                            '<img src="'+data[i].s_pic[0]+'">' +
                         '</div>' +
                         '<div class="box-body col-sm-12">' +
                             '<h3>'+ data[i].title +'</h3>'+
@@ -848,10 +850,10 @@ function search() {
               var url='/shops.html?_id='+ data[i]._id;
               date = moment(data[i].start_t).format("YYYY/MM/DD, hh:mm A");
               $('.searchdisplay > .searchdisplayr').append(
-                '<div class="col-sm-4 panel-item result">' +
+                '<div class="col-sm-4 panel-itemsearch result">' +
                     '<div class="box col-sm-12" onclick="location.href=\''+ url +'\';">' +
                         '<div class="box-heading">' +
-                            '<img src="images/festive-food-1388406500q51.jpg">' +
+                            '<img src="'+data[i].s_pic[0]+'">' +
                         '</div>' +
                         '<div class="box-body col-sm-12">' +
                             '<h3>'+ data[i].title +'</h3>'+
@@ -870,8 +872,8 @@ function search() {
                 '</div>'
               );
             }
-            i++;
           }
+          i++;
         });
       }
     });
@@ -907,7 +909,8 @@ function search() {
     }
   });
   $(window).bind("load", function() {
-    if(obj._id != ""){
+    if(obj._id != undefined){
+      console.log(obj._id);
       $('#search_tag').val(obj._id).keyup();
     }
   });
@@ -1140,6 +1143,12 @@ function shops(){
             });
           }
         }
+        var nowdate=$.now();
+        if(data.final != "0" || nowdate >= data.end_t){
+          $('#join').addClass('disabled');
+          $('#sstartt').addClass('text-danger');
+          $('#sstartt').append(' 加入時間已過')
+        }
       }
   });
 }
@@ -1311,66 +1320,185 @@ function testAPI() {
             });
           }
         }
-        if (top.location.pathname == '/profile.html'){
-          //console.log('check rate');
-          for (var i = 0; i < data.rate; i++) {
-            $("#stars").append('<i class="fa fa-star" aria-hidden="true"></i>');
-          }
-          for (var i = 0; i < 5-data.rate; i++) {
-            $("#stars").append('<i class="fa fa-star-o" aria-hidden="true"></i>');
-          }
-          for (var i = 0; i < data.foodrate; i++) {
-            $('#foodrate').append('<i class="fa fa-star" aria-hidden="true"></i>');
-          }
-          for (var i = 0; i < 5-data.foodrate; i++) {
-            $('#foodrate').append('<i class="fa fa-star-o" aria-hidden="true"></i>');
-          }
-          for (var i = 0; i < data.placerate; i++) {
-            $('#placerate').append('<i class="fa fa-star" aria-hidden="true"></i>');
-          }
-          for (var i = 0; i < 5-data.placerate; i++) {
-            $('#placerate').append('<i class="fa fa-star-o" aria-hidden="true"></i>');
-          }
-          $('#specialist').append(
-            data.telant+
-            '&nbsp<i class="fa fa-pencil-square-o" id="tebtn" aria-hidden="true"></i>&nbsp'+
-            '<input type="text" class="telantinput" id="telantinput" name="telantinput" placeholder="請輸入專長~">'+
-            '<button type="button" class="btn btn-default btn-sm telantinput" id="tesubbtn">OK</button>'+
-            '<button type="button" class="btn btn-default btn-sm telantinput" id="tecancelbtn">取消</button>'
-          );
-          $('#chefword').append(
-            data.words+'&nbsp<i class="fa fa-pencil-square-o" id="cwbtn" aria-hidden="true"></i>&nbsp'+
-            '<input type="text" class="chefwordinput" id="chefwordinput" name="chefwordinput" placeholder="輸入簡單自我介紹吧~">'+
-            '<button type="button" class="btn btn-default btn-sm chefwordinput" id="cwsubbtn">OK</button>'+
-            '<button type="button" class="btn btn-default btn-sm chefwordinput" id="cwcancelbtn">取消</button>'
-          );
-          $('#suctime').append(data.shop_suc);
-          $('#failtime').append(data.shop_fail);
-          $('#meannocook').append(data.shop_mean_nocook);
-          $('#meannoeat').append(data.shop_mean_noeat);
-          profileupdate();
-        }
+        /*var nowdate = $.now(),j=0;
+        $.get("http://fedtime-ncnuim.rhcloud.com/shop",
+          function(data,url){
+            $.each(data, function(index, element) {
+              //人數不足
+              if(nowdate > data[j].end_t && nowdate < data[j].start_t && data[j].customerid.length < data[j].mincnum && data[j].final != 3) {
+                $.ajax({
+                  type: 'Patch',
+                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  dataType: 'json',
+                  data: {
+                    final : 3
+                  },
+                  success: function (data) {
+                    $.get("http://fedtime-ncnuim.rhcloud.com/u/"+data[j].uid,
+                      function(data2,url){
+                        var num = data.shop_fail+1;
+                        $.ajax({
+                          type: 'Patch',
+                          url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data2._id,
+                          dataType: 'json',
+                          data: {
+                            shop_fail : num
+                          },
+                          success: function () {
+                            //location.reload();
+                          }
+                        });
+                    });
+                  }
+                });
+              } else if(nowdate >= data[j].start_t && nowdate <= data[j].start_t+86400000 && data[j].customerid.length >= data[j].mincnum && data[j].final != 1) {//
+                $.ajax({
+                  type: 'Patch',
+                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  dataType: 'json',
+                  data: {
+                    final : 1
+                  },
+                  success: function (data) {
+                    //location.reload();
+                  }
+                });
+              } else if(nowdate > data[j].start_t+86400000 && data[j].final != 2) {
+                $.ajax({
+                  type: 'Patch',
+                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  dataType: 'json',
+                  data: {
+                    final : 3
+                  },
+                  success: function (data3) {
+                    $.ajax({
+                      type: 'GET',
+                      url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data3.uid,
+                      dataType: 'json',
+                      success: function (data4) {
+                        var num = data4.shop_fail+1;
+                        $.ajax({
+                          type: 'Patch',
+                          url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data4._id,
+                          dataType: 'json',
+                          data: {
+                            shop_fail : num
+                          },
+                          success: function () {
+                            //location.reload();
+                          }
+                        });
+                      }
+                    });
+                  }
+                });
+              } else if(nowdate < data[j].start_t && nowdate > data[j].end_t && data[j].mincnum <= data[j].customerid.length) {
+                $.ajax({
+                  type: 'Patch',
+                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  dataType: 'json',
+                  data: {
+                    final : 5
+                  },
+                  success: function (data3) {}
+                });
+              }
+              j++;
+            });
+        });*/
     });
-    /*var nowdate = $.now();
-    $.get("http://fedtime-ncnuim.rhcloud.com/shop",
-      function(data,url){
-        $.each(data, function(index, element) {
-          if(data[i].start_t+86400000 < nowdate && final == 0){
-
-          } else if(nowdate<) {
-
-          }
-        });
-    });*/
   });
 }
-function profileupdate() {
+function profile() {
   FB.api('/me/picture?width=400', function(response){
     //console.log(response.data.url);
     $('#profilepic').attr("src", response.data.url);
   });
   FB.api('/me', function(user){
-    $.ajax({
+    $.ajax({//個人資料
+      type: 'GET',
+      url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
+      dataType: 'json',
+      success: function (data) {
+        for (var i = 0; i < data.rate; i++) {
+          $("#stars").append('<i class="fa fa-star" aria-hidden="true"></i>');
+        }
+        for (var i = 0; i < 5-data.rate; i++) {
+          $("#stars").append('<i class="fa fa-star-o" aria-hidden="true"></i>');
+        }
+        for (var i = 0; i < data.foodrate; i++) {
+          $('#foodrate').append('<i class="fa fa-star" aria-hidden="true"></i>');
+        }
+        for (var i = 0; i < 5-data.foodrate; i++) {
+          $('#foodrate').append('<i class="fa fa-star-o" aria-hidden="true"></i>');
+        }
+        for (var i = 0; i < data.placerate; i++) {
+          $('#placerate').append('<i class="fa fa-star" aria-hidden="true"></i>');
+        }
+        for (var i = 0; i < 5-data.placerate; i++) {
+          $('#placerate').append('<i class="fa fa-star-o" aria-hidden="true"></i>');
+        }
+        $('#specialist').append(
+          data.telant+
+          '&nbsp<i class="fa fa-pencil-square-o" id="tebtn" aria-hidden="true"></i>&nbsp'+
+          '<input type="text" class="telantinput" id="telantinput" name="telantinput" placeholder="請輸入專長~">'+
+          '<button type="button" class="btn btn-default btn-sm telantinput" id="tesubbtn">OK</button>'+
+          '<button type="button" class="btn btn-default btn-sm telantinput" id="tecancelbtn">取消</button>'
+        );
+        $('#chefword').append(
+          data.words+'&nbsp<i class="fa fa-pencil-square-o" id="cwbtn" aria-hidden="true"></i>&nbsp'+
+          '<input type="text" class="chefwordinput" id="chefwordinput" name="chefwordinput" placeholder="輸入簡單自我介紹吧~">'+
+          '<button type="button" class="btn btn-default btn-sm chefwordinput" id="cwsubbtn">OK</button>'+
+          '<button type="button" class="btn btn-default btn-sm chefwordinput" id="cwcancelbtn">取消</button>'
+        );
+        $('#suctime').append(data.shop_suc);
+        $('#failtime').append(data.shop_fail);
+        $('#meannocook').append(data.shop_mean_nocook);
+        $('#meannoeat').append(data.shop_mean_noeat);
+        $('#tebtn').click(function() {
+          $('.telantinput').toggle();
+        });
+        $('#cwbtn').click(function() {
+          $('.chefwordinput').toggle();
+        });
+        $('#tesubbtn').click(function() {
+          var text=$('#telantinput').val();
+          $.ajax({
+            type: 'Patch',
+            url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
+            dataType: 'json',
+            data: {
+              telant : text
+            },
+            success: function (data) {
+              location.reload();
+            }
+          });
+        });
+        $('#cwsubbtn').click(function() {
+          var text=$('#chefwordinput').val();
+          $.ajax({
+            type: 'Patch',
+            url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
+            dataType: 'json',
+            data: {
+              words : text
+            },
+            success: function (data) {
+              location.reload();
+            }
+          });
+        });
+        $('#tecancelbtn').click(function() {
+          $('.telantinput').toggle();
+        });
+        $('#cwcancelbtn').click(function() {
+          $('.chefwordinput').toggle();
+        });
+      }
+    });
+    $.ajax({//當大廚
       type: 'GET',
       url: 'http://fedtime-ncnuim.rhcloud.com/shop/s/'+user.id,
       dataType: 'json',
@@ -1378,8 +1506,11 @@ function profileupdate() {
         var i=0;
         $.each(data, function(index, element) {
             var stat = '';
+            var num = data[i].cavalnum;
+            var _id = data[i]._id;
+            var uid = data[i].uid;
             var date = moment(data[i].start_t).format("YYYY-MM-DD, HH:mm");
-            if(data[i].final==0)
+            if(data[i].final==0 || data[i].final==5)
               stat='未完成';
             if(data[i].final==1)
               stat='等待評價中';
@@ -1387,6 +1518,8 @@ function profileupdate() {
               stat='交易成功';
             if(data[i].final==3)
               stat='交易失敗';
+            if(data[i].final==4)
+              stat='已取消';
             $('#ustoret > tbody').append(
               '<tr id="tr' + i +
               '" class="warning"><td>' + date +
@@ -1394,19 +1527,100 @@ function profileupdate() {
               '</a></td><td>NT$' + data[i].cost +
               '</td><td>' + data[i].cnum +
               '</td><td>' + stat +
-              '</td><td><button class="btn btn-warning btn-sm disabled" id="ratebtn'+ data[i]._id +'">給評價</button>'+
-              '<button class="btn btn-danger btn-sm disabled" id="badbtn'+ data[i]._id +'">檢舉</button>'+
+              '</td><td class="text-center"><button class="btn btn-warning btn-sm disabled" data-toggle="modal" data-target="#rmodal'+ data[i]._id +'" id="ratebtn'+ data[i]._id +'">給評價</button>&nbsp'+
+              '<button class="btn btn-danger btn-sm disabled" data-toggle="modal" data-target="#bmodal'+ data[i]._id +'" id="badbtn'+ data[i]._id +'">檢舉</button>&nbsp'+
+              '<button class="btn btn-danger btn-sm disabled" id="notcookbtn'+ data[i]._id +'">取消飯局</button>'+
               '</td></tr>'
             );
             if(data[i].final==2)
               $('#tr' + i).addClass('success').removeClass('warning');
             if(data[i].final==3)
               $('#tr' + i).addClass('danger').removeClass('warning');
+            if(data[i].final==4)
+              $('#tr' + i).addClass('danger').removeClass('warning');
+            if(data[i].final==1){
+              $('.modalspace').append(
+                '<div class="modal fade" id="rmodal'+ data[i]._id +'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+                  '<div class="modal-dialog">'+
+                    '<div class="modal-content">'+
+                      '<div class="modal-header">'+
+                        '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'+
+                        '<h3 class="modal-title"><i class="fa fa-file-text" id="myModalLabel" aria-hidden="true"></i>&nbsp給評價</h3>'+
+                      '</div>'+
+                      '<div class="modal-body rmodalbody">'+
+                      '</div>'+
+                      '<div class="modal-footer">'+
+                        '<button type="button" class="btn btn-primary" id="rsub'+ data[i]._id +'">OK</button>'+
+                        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'+
+                '<div class="modal fade" id="bmodal'+ data[i]._id +'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+                  '<div class="modal-dialog">'+
+                    '<div class="modal-content">'+
+                      '<div class="modal-header">'+
+                        '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'+
+                        '<h3 class="modal-title"><i class="fa fa-file-text" id="myModalLabel" aria-hidden="true"></i>&nbsp檢舉</h3>'+
+                      '</div>'+
+                      '<div class="modal-body bmodalbody">'+
+                      '</div>'+
+                      '<div class="modal-footer">'+
+                        '<button type="button" class="btn btn-primary" id="bsub'+ data[i]._id +'">OK</button>'+
+                        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'
+              );
+              for(var j=0;j<data[i].customerid.length;j++){
+                $.ajax({
+                  type: 'GET',
+                  url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data[i].customerid[j],
+                  dataType: 'json',
+                  success: function (data3) {
+                    $('.rmodalbody').append(
+                      '<div class="ratio" id="r'+ data3._id +'">'+
+                        '<h4>'+ data3.name +'</h4>'+
+                        '<label class="radio-inline">'+
+                          '<input type="radio" name="inlineRadioOptions'+ data3._id +'" id="inlineRadio1" value="option1"> 1'+
+                        '</label>'+
+                        '<label class="radio-inline">'+
+                          '<input type="radio" name="inlineRadioOptions'+ data3._id +'" id="inlineRadio2" value="option2"> 2'+
+                        '</label>'+
+                        '<label class="radio-inline">'+
+                          '<input type="radio" name="inlineRadioOptions'+ data3._id +'" id="inlineRadio3" value="option3"> 3'+
+                        '</label>'+
+                        '<label class="radio-inline">'+
+                          '<input type="radio" name="inlineRadioOptions'+ data3._id +'" id="inlineRadio4" value="option4"> 4'+
+                        '</label>'+
+                        '<label class="radio-inline">'+
+                          '<input type="radio" name="inlineRadioOptions'+ data3._id +'" id="inlineRadio5" value="option5"> 5'+
+                        '</label>'+
+                      '</div>'
+                    );
+                  }
+                });
+              }
+            }
+            $('#notcookbtn'+data[i]._id).click(function(data) {
+              $.ajax({
+                type: 'Patch',
+                url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+_id,
+                dataType: 'json',
+                data: {
+                  'final' : 4
+                },
+                success: function (data2) {
+                  location.reload();
+                }
+              });
+            });
             i++;
         });
       }
     });
-    $.ajax({
+    $.ajax({//當食客
       type: 'GET',
       url: 'http://fedtime-ncnuim.rhcloud.com/shop/c/'+user.id,
       dataType: 'json',
@@ -1414,8 +1628,11 @@ function profileupdate() {
         var i=0;
         $.each(data, function(index, element) {
             var stat = '';
+            var num = data[i].cavalnum;
+            var _id = data[i]._id;
+            var uid = data[i].uid;
             var date = moment(data[i].start_t).format("YYYY-MM-DD, HH:mm");
-            if(data[i].final==0)
+            if(data[i].final==0 || data[i].final==5)
               stat='未完成';
             if(data[i].final==1)
               stat='等待評價中';
@@ -1423,6 +1640,8 @@ function profileupdate() {
               stat='交易成功';
             if(data[i].final==3)
               stat='交易失敗';
+            if(data[i].final==4)
+              stat='已取消';
             $('#ueatt > tbody').append(
               '<tr id="tr' + i +
               '" class="warning"><td>' + date +
@@ -1430,17 +1649,85 @@ function profileupdate() {
               '</a></td><td>' + data[i].uname +
               '</td><td>NT$' + data[i].cost +
               '</td><td>' + stat +
-              '</td><td><button class="btn btn-warning btn-sm disabled" id="ratebtn'+ data[i]._id +'">給評價</button>'+
-              '<button class="btn btn-danger btn-sm disabled" id="badbtn'+ data[i]._id +'">檢舉</button>'+
+              '</td><td class="text-center"><button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#rmodalexample" id="ratebtndemo">給評價</button>&nbsp'+
+              '<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#bmodalexample" id="badbtndemo">檢舉</button>&nbsp'+
+              '<button class="btn btn-danger btn-sm disabled" id="noteatbtndemo">退出飯局</button>'+
               '</td></tr>'
             );
+            $('#noteatbtn'+data[i]._id).click(function() {
+              $.ajax({
+                type: 'Delete',
+                url: 'http://fedtime-ncnuim.rhcloud.com/shop/c/'+_id,
+                dataType: 'json',
+                data: {
+                  'customerid' : user.id
+                },
+                success: function (data2) {
+                  $.ajax({
+                    type: 'Patch',
+                    url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+_id,
+                    dataType: 'json',
+                    data: {
+                      'cavalnum' : num+1
+                    },
+                    success: function () {
+                      location.reload();
+                    }
+                  });
+                }
+              });
+            });
+            $('#rsubexample').click(function() {
+              $.ajax({
+                type: 'Patch',
+                url: 'http://fedtime-ncnuim.rhcloud.com/u/1041063575975649',
+                dataType: 'json',
+                data: {
+                  "rate": 4,
+                  "foodrate": 4,
+                  "placerate": 3,
+                },
+                success: function () {
+                  $('#rsubexample').addClass('disabled');
+                  $('#closebtn').click();
+                }
+              });
+            });
             if(data[i].final==2)
               $('#tr' + i).addClass('success').removeClass('warning');
             if(data[i].final==3)
               $('#tr' + i).addClass('danger').removeClass('warning');
+            if(data[i].final==4)
+              $('#tr' + i).addClass('danger').removeClass('warning');
             i++;
         });
       }
+    });
+    var j=0;
+    $.get("http://fedtime-ncnuim.rhcloud.com/shop/s/"+user.id,
+      function(data,url){
+        $.each(data, function(index, element) {
+          if(data[j].final == 0){
+            $('#notcookbtn'+ data[j]._id).removeClass('disabled');
+          } else if(data[j].final == 1) {
+            $('#ratebtn'+ data[j]._id).removeClass('disabled');
+            $('#badbtn'+ data[j]._id).removeClass('disabled');
+          }
+          j++;
+        });
+    });
+    var k=0;
+    $.get("http://fedtime-ncnuim.rhcloud.com/shop/c/"+user.id,
+      function(data,url){
+        $.each(data, function(index, element) {
+          if(data[k].final == 0){
+            $('#noteatbtn'+ data[k]._id).removeClass('disabled');
+          } else if(data[k].final == 1) {
+            $('#ratebtn'+ data[k]._id).removeClass('disabled');
+            $('#badbtn'+ data[k]._id).removeClass('disabled');
+          }
+          k++;
+        });
     });
     $.ajax({
       type: 'GET',
@@ -1456,7 +1743,7 @@ function profileupdate() {
             success: function (data2) {
               var date = moment(data2.start_t).format("YYYY-MM-DD, HH:mm");
               var stat = "";
-              if(data2.final==0)
+              if(data2.final==0 || data2.final==5)
                 stat='未完成';
               if(data2.final==1)
                 stat='等待評價中';
@@ -1464,6 +1751,8 @@ function profileupdate() {
                 stat='交易成功';
               if(data2.final==3)
                 stat='交易失敗';
+              if(data2.final==4)
+                stat='已取消';
               $('#favshop > tbody').append(
                 '<tr id="tr' + i +
                 '" class="warning"><td>' + date +
@@ -1477,8 +1766,8 @@ function profileupdate() {
           });
           i++;
         });
-      }
-    });
+      }//favchef
+    });//favshop
     $.ajax({
       type: 'GET',
       url: 'http://fedtime-ncnuim.rhcloud.com/likechef/'+user.id,
@@ -1509,47 +1798,7 @@ function profileupdate() {
           i++;
         });
       }
-    });
-    $('#tebtn').click(function() {
-      $('.telantinput').toggle();
-    });
-    $('#cwbtn').click(function() {
-      $('.chefwordinput').toggle();
-    });
-    $('#tesubbtn').click(function() {
-      var text=$('#telantinput').val();
-      $.ajax({
-        type: 'Patch',
-        url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
-        dataType: 'json',
-        data: {
-          telant : text
-        },
-        success: function (data) {
-          location.reload();
-        }
-      });
-    });
-    $('#cwsubbtn').click(function() {
-      var text=$('#chefwordinput').val();
-      $.ajax({
-        type: 'Patch',
-        url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
-        dataType: 'json',
-        data: {
-          words : text
-        },
-        success: function (data) {
-          location.reload();
-        }
-      });
-    });
-    $('#tecancelbtn').click(function() {
-      $('.telantinput').toggle();
-    });
-    $('#cwcancelbtn').click(function() {
-      $('.chefwordinput').toggle();
-    });
+    });//favchef
   });
 }
 function fbLogoutUser() {
@@ -1558,25 +1807,6 @@ function fbLogoutUser() {
   });
 }
 $(document).ready(function(){
-    /*window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '155953398151066',
-        cookie     : true,  // enable cookies to allow the server to access
-                            // the session
-        xfbml      : true,  // parse social plugins on this page
-        version    : 'v2.2' // use version 2.2
-      });
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-    };
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));*/
     $(document).on(
         'fbload',  //  <---- HERE'S OUR CUSTOM EVENT BEING LISTENED FOR
         function(){
@@ -1585,16 +1815,12 @@ $(document).ready(function(){
               chef();
             if (top.location.pathname == '/shops.html')
               shops();
-
+            if (top.location.pathname == '/profile.html')
+              profile();
         }
     );
     $(".facebook").hide();
     $("#service_content").load("service_content.html");
-    /*$("#likechef").hover(function(){
-        $(".fa-heart").css("color", "#ff0066");
-      }, function(){
-        $(".fa-heart").css("color", "#a6a6a6");
-    });*/
     $("#comfirm").click(function() {
         if($("#comfirm").prop('checked') == true){
           $(".facebook").toggle();
