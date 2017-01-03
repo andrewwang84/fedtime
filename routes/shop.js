@@ -56,5 +56,11 @@ router.delete('/:id', function(req, res, next) {
     res.json(post);
   });
 });
+router.delete('/c/:id', function(req, res, next) {
+  Shop.findByIdAndUpdate(req.params.id, { $pull: req.body } , function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
 
 module.exports = router;
