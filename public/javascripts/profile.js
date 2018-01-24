@@ -1,6 +1,6 @@
 $(document).ready(
   fbLoginCheck();
-  alert('fuck');
+  //alert('fuck');
 );
 function fbLoginCheck() {
   FB.getLoginStatus(function(response) {

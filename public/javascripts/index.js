@@ -22,7 +22,7 @@ window.fbAsyncInit = function() {
   }(document, 'script', 'facebook-jssdk'));
 function bestchef() {
   $.ajax({
-      url:"http://fedtime-ncnuim.rhcloud.com/u",
+      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u",
       type : "GET",
       dataType:'json',
       success:function(data){
@@ -59,7 +59,7 @@ function chef(){
       }
   );
   $.ajax({
-      url:"http://fedtime-ncnuim.rhcloud.com/u/"+obj._id,
+      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/"+obj._id,
       type : "GET",
       success: function(data) {
         $('#chefimg').attr('src',data.img);
@@ -108,7 +108,7 @@ function chef(){
       }
   });
   FB.api('/me', function(user){
-    $.get("http://fedtime-ncnuim.rhcloud.com/likechef/" + user.id,
+    $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likechef/" + user.id,
       function(data,url){
         var i=0;
         if(data != null && data.chefid.length != 0){
@@ -126,7 +126,7 @@ function chef(){
       window.location.href = '/search.html?_id='+obj._id;
     });
     $('#likechef').click(function() {
-      $.get("http://fedtime-ncnuim.rhcloud.com/likechef/" + user.id,
+      $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likechef/" + user.id,
         function(data,url){
           var i=0,
               count=0
@@ -134,7 +134,7 @@ function chef(){
             $.each(data.chefid, function(index, element) {
               if(obj._id == data.chefid[i]){
                 $.ajax({
-                  url:"http://fedtime-ncnuim.rhcloud.com/likechef/"+user.id,
+                  url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likechef/"+user.id,
                   type : "delete",
                   dataType:'json',
                   data:{
@@ -143,11 +143,11 @@ function chef(){
                   success:function(){
                     $('#likechef').html('<i class="fa fa-heart" aria-hidden="true"></i>&nbsp加入最愛');
                     $('.fa-heart').css("color", "#a6a6a6");
-                    $.get("http://fedtime-ncnuim.rhcloud.com/u/" + obj._id,
+                    $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/" + obj._id,
                       function(data,url){
                         var f=data.follower-1;
                         $.ajax({
-                          url:"http://fedtime-ncnuim.rhcloud.com/u/"+obj._id,
+                          url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/"+obj._id,
                           type : "Patch",
                           dataType:'json',
                           data:{
@@ -168,7 +168,7 @@ function chef(){
             });
             if(count == data.chefid.length){
               $.ajax({
-                url:"http://fedtime-ncnuim.rhcloud.com/likechef/"+user.id,
+                url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likechef/"+user.id,
                 type : "Patch",
                 dataType:'json',
                 data:{
@@ -177,11 +177,11 @@ function chef(){
                 success:function(){
                   $('#likechef').html('<i class="fa fa-heart" aria-hidden="true"></i>&nbsp取消最愛');
                   $('.fa-heart').css("color", "#ee245e");
-                  $.get("http://fedtime-ncnuim.rhcloud.com/u/" + obj._id,
+                  $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/" + obj._id,
                     function(data,url){
                       var f=data.follower+1;
                       $.ajax({
-                        url:"http://fedtime-ncnuim.rhcloud.com/u/"+obj._id,
+                        url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/"+obj._id,
                         type : "Patch",
                         dataType:'json',
                         data:{
@@ -197,7 +197,7 @@ function chef(){
             }
           } else {
             $.ajax({
-              url:"http://fedtime-ncnuim.rhcloud.com/likechef",
+              url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likechef",
               type : "Post",
               dataType:'json',
               data:{
@@ -207,11 +207,11 @@ function chef(){
               success:function(){
                 $('#likechef').html('<i class="fa fa-heart" aria-hidden="true"></i>&nbsp取消最愛');
                 $('.fa-heart').css("color", "#ee245e");
-                $.get("http://fedtime-ncnuim.rhcloud.com/u/" + obj._id,
+                $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/" + obj._id,
                   function(data,url){
                     var f=data.follower+1;
                     $.ajax({
-                      url:"http://fedtime-ncnuim.rhcloud.com/u/"+obj._id,
+                      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/"+obj._id,
                       type : "Patch",
                       dataType:'json',
                       data:{
@@ -231,7 +231,7 @@ function chef(){
 }
 function initMap() {
   $.ajax({
-    url:"http://fedtime-ncnuim.rhcloud.com/shop",
+    url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop",
     type : "GET",
     dataType:'json',
     success:function(data){
@@ -414,7 +414,7 @@ function initMap3() {
   var marker = new google.maps.Marker({map: map});
   var pos={};
   $.ajax({
-    url:"http://fedtime-ncnuim.rhcloud.com/shop/"+obj._id,
+    url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/"+obj._id,
     type : "GET",
     dataType:'json',
     success:function(data){
@@ -543,7 +543,7 @@ function subshop() {
       function(){
         setTimeout(function(){
           $.ajax({
-            url:"http://fedtime-ncnuim.rhcloud.com/shop",
+            url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop",
             data:{
               'uid' : _id,
               'uname' : name,
@@ -584,7 +584,7 @@ function subshop() {
                   },
                   success:function(response){
                     $.ajax({
-                      url:"http://fedtime-ncnuim.rhcloud.com/shop/join/"+res._id,
+                      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/join/"+res._id,
                       data: {'s_pic' : response.url},
                       type : "PATCH",
                       error:function(xhr){
@@ -604,7 +604,7 @@ function subshop() {
                           },
                           function(isConfirm){
                             if (isConfirm) {
-                              location.replace("http://fedtime-ncnuim.rhcloud.com/profile.html");
+                              location.replace("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/profile.html");
                             }
                           });
                         }
@@ -632,7 +632,7 @@ function search() {
       pf=""
   var date="";
   $.ajax({
-      url:"http://fedtime-ncnuim.rhcloud.com/shop",
+      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop",
       type : "GET",
       dataType:'json',
       success:function(data){
@@ -689,7 +689,7 @@ function search() {
     if(tf == "allt")
       filteroptiont=""
     $.ajax({
-      url:"http://fedtime-ncnuim.rhcloud.com/shop",
+      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop",
       type : "GET",
       dataType:'json',
       success:function(data){
@@ -735,7 +735,7 @@ function search() {
     pf=this.id;
     $(".searchdisplayr").empty();
     $.ajax({
-      url:"http://fedtime-ncnuim.rhcloud.com/shop",
+      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop",
       type : "GET",
       dataType:'json',
       success:function(data){
@@ -926,7 +926,7 @@ function shops(){
   );
   $.ajax({
     type: "GET",
-    url: "http://fedtime-ncnuim.rhcloud.com/shopcom/" + obj._id,
+    url: "http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shopcom/" + obj._id,
     dataType:'json',
     success: function(data){
       var i=0;
@@ -939,7 +939,7 @@ function shops(){
     }
   });
   FB.api('/me', function(user){
-    $.get("http://fedtime-ncnuim.rhcloud.com/likeshop/" + user.id,
+    $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likeshop/" + user.id,
       function(data,url){
         var i=0;
         if(data != null && data.shopid.length != 0){
@@ -954,7 +954,7 @@ function shops(){
         }
     });
     $('#likeshop').click(function() {
-      $.get("http://fedtime-ncnuim.rhcloud.com/likeshop/" + user.id,
+      $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likeshop/" + user.id,
         function(data,url){
           var i=0,
               count=0
@@ -962,7 +962,7 @@ function shops(){
             $.each(data.shopid, function(index, element) {
               if(obj._id == data.shopid[i]){
                 $.ajax({
-                  url:"http://fedtime-ncnuim.rhcloud.com/likeshop/"+user.id,
+                  url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likeshop/"+user.id,
                   type : "delete",
                   dataType:'json',
                   data:{
@@ -981,7 +981,7 @@ function shops(){
             });
             if(count == data.shopid.length){
               $.ajax({
-                url:"http://fedtime-ncnuim.rhcloud.com/likeshop/"+user.id,
+                url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likeshop/"+user.id,
                 type : "Patch",
                 dataType:'json',
                 data:{
@@ -995,7 +995,7 @@ function shops(){
             }
           } else {
             $.ajax({
-                url:"http://fedtime-ncnuim.rhcloud.com/likeshop",
+                url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likeshop",
                 type : "Post",
                 dataType:'json',
                 data:{
@@ -1023,12 +1023,12 @@ function shops(){
       $text.focus();
     } else{
       _data = idname + ": " + $text.html();
-      $.get("http://fedtime-ncnuim.rhcloud.com/shopcom/" + obj._id,
+      $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shopcom/" + obj._id,
         function(data,url){
           if(data == null){
             $.ajax({
               type: "POST",
-              url: "http://fedtime-ncnuim.rhcloud.com/shopcom",
+              url: "http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shopcom",
               data: {
                 '_id' : obj._id,
                 'com' : _data
@@ -1042,7 +1042,7 @@ function shops(){
           } else {
             $.ajax({
               type: "Patch",
-              url: "http://fedtime-ncnuim.rhcloud.com/shopcom/" + obj._id,
+              url: "http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shopcom/" + obj._id,
               data: {
                 'com' : _data
               },
@@ -1059,14 +1059,14 @@ function shops(){
   });
   /*end*/
   $.ajax({
-      url:"http://fedtime-ncnuim.rhcloud.com/shop/" + obj._id,
+      url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/" + obj._id,
       type : "GET",
       dataType:'json',
       success:function(data){
         var i;
         $('#stitle').children('strong').text(data.title);
         $('#shost').append(
-                            '<a href="http://fedtime-ncnuim.rhcloud.com/chef.html?_id=' + data.uid +
+                            '<a href="http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/chef.html?_id=' + data.uid +
                             '">'+ data.uname +'</a>&nbsp'+
                             '<a href="https://www.facebook.com/' + data.uid +
                             '"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>'
@@ -1097,7 +1097,7 @@ function shops(){
         if(data.cavalnum < data.cnum){
           for(i=0;i<data.customerid.length;i++){
             $.ajax({
-                url:"http://fedtime-ncnuim.rhcloud.com/u/" + data.customerid[i],
+                url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/" + data.customerid[i],
                 type : "GET",
                 success: function(data2) {
                   $('.cosname').append(
@@ -1163,11 +1163,11 @@ function join() {
   );
   FB.api('/me', function(user){
     $.ajax({
-        url:"http://fedtime-ncnuim.rhcloud.com/shop/" + obj._id,
+        url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/" + obj._id,
         type : "GET",
         success: function(data2) {
           $.ajax({
-              url:"http://fedtime-ncnuim.rhcloud.com/shop/join/" + obj._id,
+              url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/join/" + obj._id,
               type : "PATCH",
               dataType:'json',
               data: {
@@ -1176,7 +1176,7 @@ function join() {
               success: function(data) {
                 var avalnumnow = parseInt(data2.cavalnum)-1;
                 $.ajax({
-                    url:"http://fedtime-ncnuim.rhcloud.com/shop/" + obj._id,
+                    url:"http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/" + obj._id,
                     type : "PATCH",
                     dataType:'json',
                     data: {
@@ -1224,20 +1224,20 @@ function statusChangeCallback(response) {
   } else if (response.status === 'not_authorized') {
     // The person is logged into Facebook, but not your app.
     if (top.location.pathname == '/profile.html'){
-      window.location.replace("http://fedtime-ncnuim.rhcloud.com/index.html");
+      window.location.replace("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/index.html");
     }
     if (top.location.pathname == '/newshop.html'){
-      window.location.replace("http://fedtime-ncnuim.rhcloud.com/index.html");
+      window.location.replace("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/index.html");
     }
     console.log('Please log into this app.');
   } else {
     // The person is not logged into Facebook, so we're not sure if
     // they are logged into this app or not.
     if (top.location.pathname == '/profile.html'){
-      window.location.replace("http://fedtime-ncnuim.rhcloud.com/index.html");
+      window.location.replace("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/index.html");
     }
     if (top.location.pathname == '/newshop.html'){
-      window.location.replace("http://fedtime-ncnuim.rhcloud.com/index.html");
+      window.location.replace("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/index.html");
     }
     console.log('Please log into Facebook.');
   }
@@ -1261,7 +1261,7 @@ function testAPI() {
     var url='';
     document.getElementById('status').innerHTML =
       'Thanks for logging in, ' + response.name + '!';
-    $.get("http://fedtime-ncnuim.rhcloud.com/u/" + response.id,
+    $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/" + response.id,
       function(data,url){
         FB.api('/me/picture?width=400', function(response2){
           url=response2.data.url;
@@ -1269,7 +1269,7 @@ function testAPI() {
             //console.log('check img');
             $.ajax({
               type: 'PATCH',
-              url: 'http://fedtime-ncnuim.rhcloud.com/u/'+ response.id,
+              url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+ response.id,
               dataType: 'json',
               data:{img : url},
               success: function (data) {
@@ -1280,7 +1280,7 @@ function testAPI() {
         });
         if(data == null){
           //console.log('check user');
-          $.post("http://fedtime-ncnuim.rhcloud.com/u",
+          $.post("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u",
             {
               _id: response.id,
               name : response.name,
@@ -1311,7 +1311,7 @@ function testAPI() {
           if(data.token != accessToken){
             $.ajax({
               type: 'PATCH',
-              url: 'http://fedtime-ncnuim.rhcloud.com/u/'+ response.id,
+              url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+ response.id,
               dataType: 'json',
               data:{token : accessToken},
               success: function (data) {
@@ -1321,25 +1321,25 @@ function testAPI() {
           }
         }
         /*var nowdate = $.now(),j=0;
-        $.get("http://fedtime-ncnuim.rhcloud.com/shop",
+        $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop",
           function(data,url){
             $.each(data, function(index, element) {
               //人數不足
               if(nowdate > data[j].end_t && nowdate < data[j].start_t && data[j].customerid.length < data[j].mincnum && data[j].final != 3) {
                 $.ajax({
                   type: 'Patch',
-                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/'+data[j]._id,
                   dataType: 'json',
                   data: {
                     final : 3
                   },
                   success: function (data) {
-                    $.get("http://fedtime-ncnuim.rhcloud.com/u/"+data[j].uid,
+                    $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/"+data[j].uid,
                       function(data2,url){
                         var num = data.shop_fail+1;
                         $.ajax({
                           type: 'Patch',
-                          url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data2._id,
+                          url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+data2._id,
                           dataType: 'json',
                           data: {
                             shop_fail : num
@@ -1354,7 +1354,7 @@ function testAPI() {
               } else if(nowdate >= data[j].start_t && nowdate <= data[j].start_t+86400000 && data[j].customerid.length >= data[j].mincnum && data[j].final != 1) {//
                 $.ajax({
                   type: 'Patch',
-                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/'+data[j]._id,
                   dataType: 'json',
                   data: {
                     final : 1
@@ -1366,7 +1366,7 @@ function testAPI() {
               } else if(nowdate > data[j].start_t+86400000 && data[j].final != 2) {
                 $.ajax({
                   type: 'Patch',
-                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/'+data[j]._id,
                   dataType: 'json',
                   data: {
                     final : 3
@@ -1374,13 +1374,13 @@ function testAPI() {
                   success: function (data3) {
                     $.ajax({
                       type: 'GET',
-                      url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data3.uid,
+                      url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+data3.uid,
                       dataType: 'json',
                       success: function (data4) {
                         var num = data4.shop_fail+1;
                         $.ajax({
                           type: 'Patch',
-                          url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data4._id,
+                          url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+data4._id,
                           dataType: 'json',
                           data: {
                             shop_fail : num
@@ -1396,7 +1396,7 @@ function testAPI() {
               } else if(nowdate < data[j].start_t && nowdate > data[j].end_t && data[j].mincnum <= data[j].customerid.length) {
                 $.ajax({
                   type: 'Patch',
-                  url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data[j]._id,
+                  url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/'+data[j]._id,
                   dataType: 'json',
                   data: {
                     final : 5
@@ -1418,7 +1418,7 @@ function profile() {
   FB.api('/me', function(user){
     $.ajax({//個人資料
       type: 'GET',
-      url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
+      url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+user.id,
       dataType: 'json',
       success: function (data) {
         for (var i = 0; i < data.rate; i++) {
@@ -1466,7 +1466,7 @@ function profile() {
           var text=$('#telantinput').val();
           $.ajax({
             type: 'Patch',
-            url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
+            url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+user.id,
             dataType: 'json',
             data: {
               telant : text
@@ -1480,7 +1480,7 @@ function profile() {
           var text=$('#chefwordinput').val();
           $.ajax({
             type: 'Patch',
-            url: 'http://fedtime-ncnuim.rhcloud.com/u/'+user.id,
+            url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+user.id,
             dataType: 'json',
             data: {
               words : text
@@ -1500,7 +1500,7 @@ function profile() {
     });
     $.ajax({//當大廚
       type: 'GET',
-      url: 'http://fedtime-ncnuim.rhcloud.com/shop/s/'+user.id,
+      url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/s/'+user.id,
       dataType: 'json',
       success: function (data) {
         var i=0;
@@ -1523,7 +1523,7 @@ function profile() {
             $('#ustoret > tbody').append(
               '<tr id="tr' + i +
               '" class="warning"><td>' + date +
-              '</td><td><a href=http://fedtime-ncnuim.rhcloud.com/shops.html?_id=' + data[i]._id +'>'+ data[i].title +
+              '</td><td><a href=http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shops.html?_id=' + data[i]._id +'>'+ data[i].title +
               '</a></td><td>NT$' + data[i].cost +
               '</td><td>' + data[i].cnum +
               '</td><td>' + stat +
@@ -1576,7 +1576,7 @@ function profile() {
               for(var j=0;j<data[i].customerid.length;j++){
                 $.ajax({
                   type: 'GET',
-                  url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data[i].customerid[j],
+                  url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+data[i].customerid[j],
                   dataType: 'json',
                   success: function (data3) {
                     $('.rmodalbody').append(
@@ -1606,7 +1606,7 @@ function profile() {
             $('#notcookbtn'+data[i]._id).click(function(data) {
               $.ajax({
                 type: 'Patch',
-                url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+_id,
+                url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/'+_id,
                 dataType: 'json',
                 data: {
                   'final' : 4
@@ -1622,7 +1622,7 @@ function profile() {
     });
     $.ajax({//當食客
       type: 'GET',
-      url: 'http://fedtime-ncnuim.rhcloud.com/shop/c/'+user.id,
+      url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/c/'+user.id,
       dataType: 'json',
       success: function (data) {
         var i=0;
@@ -1645,7 +1645,7 @@ function profile() {
             $('#ueatt > tbody').append(
               '<tr id="tr' + i +
               '" class="warning"><td>' + date +
-              '</td><td><a href=http://fedtime-ncnuim.rhcloud.com/shops.html?_id=' + data[i]._id +'>' + data[i].title +
+              '</td><td><a href=http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shops.html?_id=' + data[i]._id +'>' + data[i].title +
               '</a></td><td>' + data[i].uname +
               '</td><td>NT$' + data[i].cost +
               '</td><td>' + stat +
@@ -1657,7 +1657,7 @@ function profile() {
             $('#noteatbtn'+data[i]._id).click(function() {
               $.ajax({
                 type: 'Delete',
-                url: 'http://fedtime-ncnuim.rhcloud.com/shop/c/'+_id,
+                url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/c/'+_id,
                 dataType: 'json',
                 data: {
                   'customerid' : user.id
@@ -1665,7 +1665,7 @@ function profile() {
                 success: function (data2) {
                   $.ajax({
                     type: 'Patch',
-                    url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+_id,
+                    url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/'+_id,
                     dataType: 'json',
                     data: {
                       'cavalnum' : num+1
@@ -1680,7 +1680,7 @@ function profile() {
             $('#rsubexample').click(function() {
               $.ajax({
                 type: 'Patch',
-                url: 'http://fedtime-ncnuim.rhcloud.com/u/1041063575975649',
+                url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/1041063575975649',
                 dataType: 'json',
                 data: {
                   "rate": 4,
@@ -1704,7 +1704,7 @@ function profile() {
       }
     });
     var j=0;
-    $.get("http://fedtime-ncnuim.rhcloud.com/shop/s/"+user.id,
+    $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/s/"+user.id,
       function(data,url){
         $.each(data, function(index, element) {
           if(data[j].final == 0){
@@ -1717,7 +1717,7 @@ function profile() {
         });
     });
     var k=0;
-    $.get("http://fedtime-ncnuim.rhcloud.com/shop/c/"+user.id,
+    $.get("http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/c/"+user.id,
       function(data,url){
         $.each(data, function(index, element) {
           if(data[k].final == 0){
@@ -1731,14 +1731,14 @@ function profile() {
     });
     $.ajax({
       type: 'GET',
-      url: 'http://fedtime-ncnuim.rhcloud.com/likeshop/'+user.id,
+      url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likeshop/'+user.id,
       dataType: 'json',
       success: function (data) {
         var i=0;
         $.each(data.shopid, function(index, element) {
           $.ajax({
             type: 'GET',
-            url: 'http://fedtime-ncnuim.rhcloud.com/shop/'+data.shopid[i],
+            url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shop/'+data.shopid[i],
             dataType: 'json',
             success: function (data2) {
               var date = moment(data2.start_t).format("YYYY-MM-DD, HH:mm");
@@ -1756,7 +1756,7 @@ function profile() {
               $('#favshop > tbody').append(
                 '<tr id="tr' + i +
                 '" class="warning"><td>' + date +
-                '</td><td><a href=http://fedtime-ncnuim.rhcloud.com/shops.html?_id=' + data2._id +'>' + data2.title +
+                '</td><td><a href=http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/shops.html?_id=' + data2._id +'>' + data2.title +
                 '</a></td><td>' + data2.uname +
                 '</td><td>NT$' + data2.cost +
                 '</td><td>' + stat +
@@ -1770,14 +1770,14 @@ function profile() {
     });//favshop
     $.ajax({
       type: 'GET',
-      url: 'http://fedtime-ncnuim.rhcloud.com/likechef/'+user.id,
+      url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/likechef/'+user.id,
       dataType: 'json',
       success: function (data) {
         var i=0;
         $.each(data.chefid, function(index, element) {
           $.ajax({
             type: 'GET',
-            url: 'http://fedtime-ncnuim.rhcloud.com/u/'+data.chefid[i],
+            url: 'http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/u/'+data.chefid[i],
             dataType: 'json',
             success: function (data2) {
               $('#favchef').append(
@@ -1803,7 +1803,7 @@ function profile() {
 }
 function fbLogoutUser() {
   FB.logout(function(response) {
-    location.href= "http://fedtime-ncnuim.rhcloud.com/";
+    location.href= "http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/";
   });
 }
 $(document).ready(function(){
