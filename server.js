@@ -109,6 +109,7 @@ var AppContainer = function () {
 
       return false;
     }
+    var express = require('express');
     self.app = express();
     /**
      * Event listener for HTTP server "error" event.
