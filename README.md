@@ -6,4 +6,4 @@
 * MongoDB
 * Facebook Graph api
 ##### NCNUIM 106級第5組
-#### Demo:http://fedtime-fedtime.1d35.starter-us-east-1.openshiftapps.com/
+#### Demo:http://fedtime-test-yrwang-test.1d35.starter-us-east-1.openshiftapps.com/
